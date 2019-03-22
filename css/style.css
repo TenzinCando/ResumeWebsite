@@ -1,0 +1,10 @@
+body {
+    font-size: 12px;
+}
+
+.objective{
+    text-align: center;
+}
+.objective--heading{
+    font-weight: 800;
+}
