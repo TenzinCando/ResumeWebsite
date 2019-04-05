@@ -12,13 +12,23 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.text-orange,
-.heading-title {
+a {
+}
+
+.text-orange {
     color: var(--secondary-color);
+}
+
+.underline {
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 .exp--heading {
     font-size: calc(var(--font-size) * .9);
+}
+
+.exp--name {
+    display: block;
 }
 
 .exp--position,
@@ -26,13 +36,6 @@ body {
     font-weight: 400;
     font-style: italic;
     font-size: calc(var(--font-size) * .85);
-}
-
-.exp--date {
-    display: block;
-    float: right;
-    font-style: normal;
-    font-size: calc(var(--font-size) * .6);
 }
 
 .objective--content,
@@ -50,5 +53,25 @@ body {
     font-family: 'Kaushan Script', cursive;
 }
 
+.technologies--list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
 
+.technologies--list > li {
+    margin-bottom: 5px;
+}
 
+/* Spacing at edge of screen */
+.objective--content,
+.exp--content,
+.technologies--list,
+.exp--heading {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.contact-info span:nth-child(even) {
+    padding: 0 10px;
+}
