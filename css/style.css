@@ -1,10 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat');
+
+/* usage: background-color: var(--main-bg-color);*/
 body {
-    font-size: 12px;
+    --primary-color: black;
+    --secondary-color: #ef5d36;
+    --third-color: white;
+    --font-size: 1em;
+    font-size: var(--font-size);
+    background-color: var(--primary-color);
+    color: var(--third-color);
+    font-family: 'Montserrat', sans-serif;
 }
 
-.objective{
+.text-orange,
+.heading-title {
+    color: var(--secondary-color);
+}
+
+.exp--heading {
+    font-size: calc(var(--font-size) * .9);
+}
+
+.exp--position,
+.exp--date {
+    font-weight: 400;
+    font-style: italic;
+    font-size: calc(var(--font-size) * .85);
+}
+
+.exp--date {
+    display: block;
+    float: right;
+    font-style: normal;
+    font-size: calc(var(--font-size) * .6);
+}
+
+.objective--content,
+.exp--content,
+.technologies--list {
+    font-size: calc(var(--font-size) * .80);
+}
+
+.title,
+.heading-title {
     text-align: center;
 }
-.objective--heading{
-    font-weight: 800;
+
+.title--heading {
+    font-family: 'Kaushan Script', cursive;
 }
+
+
+
