@@ -32,127 +32,135 @@
 	<!-- The body or content of your page. -->
 
 	<!-- The title of the page -->
-	<header class="title">
-		<h1 class="title--heading">Tenzin <span class="text-orange">Khando</span></h1>
-		<div class="contact-info">
-			<span class="contact-info__email"><a href="mailto:tkhando1@hotmail.com" alt="tkhando1@hotmail.com"><i class="far fa-envelope"></i></a></span>
-			<span class="text-orange">|</span>
-			<span class="contact-info__phone"><a href="tel:206-302-558" alt="206-302-9558"><i class="fas fa-mobile-alt"></i></a></span>
+	<header id="nav" class="title nav">
+		<div class="nav-bar">
+			<h1 class="title--heading" v-html="title"></h1>
+			<div class="contact-info" >
+				<span v-bind:class="contact.style" v-for="contact in contacts">
+					<a v-bind:href="contact.link" v-bind:title="contact.text">
+						<i v-bind:class="contact.icon"></i>
+						<span class="contact-info__text">{{contact.text}}</span>
+					</a>
+					<span v-if="addDivider(contacts.length, contact.id)" class="text-orange">|</span>
+				</span>
+			</div>
 		</div>
 	</header>
 
 	<!-- The objective or content of your page. -->
-	<section class="objective">
-		<h2 class="heading-title"><span class="underline">Objective</span></h2>
-		<p class="objective--content">Great work ethic and always striving to meet or exceed the expectation for all projects. Adaptable to any challenge I face by asking questions to better understand and tackle the problem. Reliable and willing to help others to the best of my knowledge. Due to this, I can efficiently contribute my skills to the growth of an organization and build my professional career.</p>
-	</section>
-
-	<!-- The objective or content of your page. -->
-	<section class="technologies">
-		<h2 class="heading-title"><span class="underline">Technology Summary</span></h2>
-		<ul class="technologies--list">
-			<li>AWS EC2, AWS CDN, AWS RDS</li>
-			<li>Azure Webapp</li>
-			<li>Java</li>
-			<li>PHP</li>
-			<li>Bash script</li>
-			<li>AngularJS</li>
-			<li>HTML/CSS/JS</li>
-			<li>C++</li>
-			<li>Sourcetree, Github</li>
-			<li>MySQL, SQL Server, SQLite</li>
-			<li>Eclipse, Netbean, Visual Studio, Visual Studio Code</li>
-			<li>MS Word, Excel, Powerpoint, Outlook</li>
-			<li>Linux Ubuntu 14.0, Windows 7/10</li>
-			<li>Google Drive</li>
-			<li>Draw.io</li>
-			<li>Postman</li>
-		</ul>
-	</section>
-
-	<!-- All my work experience -->
-	<section class="exp">
-		<h2 class="heading-title"><span class="underline">Work Experiences</span></h2>
-		<section class="exp-projects">
-			<h3 class="exp--heading">
-				<span class="exp--name">American Retail Supply</span> 
-				<span class="exp--position">Full Stack Developer</span> 
-				<span class="text-orange">|</span>
-				<span class="exp--date">Jan. 2015 - Present</span></h3>
-			<div class="exp--content">
-				<p class="exp--content1">Built custom features, fixed bugs, and created reports for customers to reduce frustration and increase functionality for the Point-of-Sale(POS) application. The application was built using Maven based Java Application, Spring Framework for the frontend, Jasper Report (jrxml), and MySQL for the database.</p>
-				<ul class="exp--content1-1">
-					<li>Spoke to customers in documenting the process of their problem, discussed best possible solution and pair program with Senior Software Engineer.</li>
-					<li>Example: Adding products on the fly, integrating gateway processors, retire products, and more… to make our POS System more robust.</li>
-				</ul>				
-				<p class="exp--content2">Helped design and implement a Hybrid Azure WebApp to collect in-stores reviews. The app is built utilizing AngularJS, MySQL, and PHP.</p>
-				<p class="exp--content3">Built custom features, fixed bugs, maintained, and migrated to a new ecommerce platform, Magneto 2.0. This saved the company from outsourcing the work, quicker feature building, and better control of their website.</p>
-				<ul class="exp--content3-1">
-					<li>Wrote automation scripts in PHP and bash to reduce steps in switching between testing environments by 30%, backing up db/logs, and sending emails summary from db queries.</li>
-					<li>Incorporated AWS CDN to the website which redirected 30% of request away from the server.</li>
-					<li>Re-engineered 3rd party extensions to do what the business needed.</li>
-					<li>Delegated tasks and taught HTML/CSS to new non-technical employees to pay forward the skills and knowledge I had gained.</li>
-				</ul>
-			</div>
-		</section>	
-	</section>
-
-	<!-- All my Interships -->
-	<section class="exp">
-		<h2 class="heading-title"><span class="underline">Interships</span></h2>
-		<section class="exp-projects">
-			<h3 class="exp--heading">
-				<span class="exp--name">Pioneer Inc.</span> 
-				<span class="exp--position">Software Engineering Intern</span>
-				<span class="text-orange">|</span>
-				<span class="exp--date">Summer 2015</span>
-			</h3>
-			<div class="exp--content">
-				<p class="exp--content1">Used Agile Methodology to produce a AngularJS, PHP, and HTML/CSS web app.</p>
-				<p class="exp--content2">Daily scrum meetings which helped expose roadblocks and come up with a solution together.</p>
-				<p class="exp--content3">Ran server locally to test the app using XAMPP.</p>
-				<p class="exp--content4">Functional Testing – Plotting coordinates and testing it to ensure that correct data is presented on the app</p>
-				<p class="exp--content5">Used Gimp to create content and make the app more realistic</p>
-			</div>
-		</section>	
-	</section>
-
-	<!-- All schools -->
-	<section class="education">
-		<h2 class="heading-title"><span class="underline">Education</span></h2>
-		<section class="exp-projects">
-			<h3 class="exp--heading">
-				<span class="exp--name">University of Washington Bothell</span> 
-				<span class="exp--position">Computing and Software Systems</span>
-				<span class="text-orange">|</span>
-				<span class="exp--date">2014 - 2017</span>
-			</h3>
-			<div class="exp--content">
-				<p class="exp--content1">Took Asteroid game written in Javascript from Coding Train and converted single player game into multiple player using AWS Beanstalk Service</p>
-				<p class="exp--content2">Designed database with a group using MySQLlite of our own “Game Store”</p>
-				<p class="exp--content3">Learning to work with teams and understand different roles</p>
-				<p class="exp--content4">Providing the basic tools needed to learn and see similarities between software from assembly language, scripting in bash, and creating database.</p>
-				<p class="exp--content5">Teaching us how to learn and how same concept is used throughout all programming language</p>
-				<p class="exp--content6">Practiced front-end development skills and address problem solving using Agile & Spiral Models</p>
-			</div>
+	<main class="resume-main">
+		<section class="objective">
+			<h2 class="heading-title"><span class="underline">Objective</span></h2>
+			<p class="objective--content">Great work ethic and always striving to meet or exceed the expectation for all projects. Adaptable to any challenge I face by asking questions to better understand and tackle the problem. Reliable and willing to help others to the best of my knowledge. Due to this, I can efficiently contribute my skills to the growth of an organization and build my professional career.</p>
 		</section>
-		<section class="exp-projects">
-			<h3 class="exp--heading">
-				<span class="exp--name">South Seattle Community College</span>
-				<span class="exp--position">Associate Degree in Computer Science</span>
-				<span class="text-orange">|</span>
-				<span class="exp--date">2011 - 2013</span>
-			</h3>
-			<div class="exp--content">
-				<p class="exp--content1">First learned to program through a game. The objective was to move the character from one grid point to another, given functions that will transalate and rotate the character. This taught me to think logically and refactor my code to reach the minimum number of steps.</p>
-				<p class="exp--content2">Learned through another games i.e. Evil Hangman where the program will remove letters suggested by user and end up with a word unthinkable by the player.</p>
-				<p class="exp--content3">The programming courses required team effort and discussion with classmates to expand our ideas</p>
-			</div>
-		</section>			
-	</section>	
+
+		<!-- The objective or content of your page. -->
+		<section class="technologies">
+			<h2 class="heading-title"><span class="underline">Technology Summary</span></h2>
+			<ul class="technologies--list">
+				<li>AWS EC2, AWS CDN, AWS RDS</li>
+				<li>Azure Webapp</li>
+				<li>Java</li>
+				<li>PHP</li>
+				<li>Bash script</li>
+				<li>AngularJS</li>
+				<li>HTML/CSS/JS</li>
+				<li>C++</li>
+				<li>Sourcetree, Github</li>
+				<li>MySQL, SQL Server, SQLite</li>
+				<li>Eclipse, Netbean, Visual Studio, Visual Studio Code</li>
+				<li>MS Word, Excel, Powerpoint, Outlook</li>
+				<li>Linux Ubuntu 14.0, Windows 7/10</li>
+				<li>Google Drive</li>
+				<li>Draw.io</li>
+				<li>Postman</li>
+			</ul>
+		</section>
+
+		<!-- All my work experience -->
+		<section class="exp">
+			<h2 class="heading-title"><span class="underline">Work Experiences</span></h2>
+			<section class="exp-projects">
+				<h3 class="exp--heading">
+					<span class="exp--name">American Retail Supply</span> 
+					<span class="exp--position">Full Stack Developer</span> 
+					<span class="text-orange">|</span>
+					<span class="exp--date">Jan. 2015 - Present</span></h3>
+				<div class="exp--content">
+					<p class="exp--content1">Built custom features, fixed bugs, and created reports for customers to reduce frustration and increase functionality for the Point-of-Sale(POS) application. The application was built using Maven based Java Application, Spring Framework for the frontend, Jasper Report (jrxml), and MySQL for the database.</p>
+					<ul class="exp--content1-1">
+						<li>Spoke to customers in documenting the process of their problem, discussed best possible solution and pair program with Senior Software Engineer.</li>
+						<li>Example: Adding products on the fly, integrating gateway processors, retire products, and more… to make our POS System more robust.</li>
+					</ul>				
+					<p class="exp--content2">Helped design and implement a Hybrid Azure WebApp to collect in-stores reviews. The app is built utilizing AngularJS, MySQL, and PHP.</p>
+					<p class="exp--content3">Built custom features, fixed bugs, maintained, and migrated to a new ecommerce platform, Magneto 2.0. This saved the company from outsourcing the work, quicker feature building, and better control of their website.</p>
+					<ul class="exp--content3-1">
+						<li>Wrote automation scripts in PHP and bash to reduce steps in switching between testing environments by 30%, backing up db/logs, and sending emails summary from db queries.</li>
+						<li>Incorporated AWS CDN to the website which redirected 30% of request away from the server.</li>
+						<li>Re-engineered 3rd party extensions to do what the business needed.</li>
+						<li>Delegated tasks and taught HTML/CSS to new non-technical employees to pay forward the skills and knowledge I had gained.</li>
+					</ul>
+				</div>
+			</section>	
+		</section>
+
+		<!-- All my Interships -->
+		<section class="exp">
+			<h2 class="heading-title"><span class="underline">Interships</span></h2>
+			<section class="exp-projects">
+				<h3 class="exp--heading">
+					<span class="exp--name">Pioneer Inc.</span> 
+					<span class="exp--position">Software Engineering Intern</span>
+					<span class="text-orange">|</span>
+					<span class="exp--date">Summer 2015</span>
+				</h3>
+				<div class="exp--content">
+					<p class="exp--content1">Used Agile Methodology to produce a AngularJS, PHP, and HTML/CSS web app.</p>
+					<p class="exp--content2">Daily scrum meetings which helped expose roadblocks and come up with a solution together.</p>
+					<p class="exp--content3">Ran server locally to test the app using XAMPP.</p>
+					<p class="exp--content4">Functional Testing – Plotting coordinates and testing it to ensure that correct data is presented on the app</p>
+					<p class="exp--content5">Used Gimp to create content and make the app more realistic</p>
+				</div>
+			</section>	
+		</section>
+
+		<!-- All schools -->
+		<section class="education">
+			<h2 class="heading-title"><span class="underline">Education</span></h2>
+			<section class="exp-projects">
+				<h3 class="exp--heading">
+					<span class="exp--name">University of Washington Bothell</span> 
+					<span class="exp--position">Computing and Software Systems</span>
+					<span class="text-orange">|</span>
+					<span class="exp--date">2014 - 2017</span>
+				</h3>
+				<div class="exp--content">
+					<p class="exp--content1">Took Asteroid game written in Javascript from Coding Train and converted single player game into multiple player using AWS Beanstalk Service</p>
+					<p class="exp--content2">Designed database with a group using MySQLlite of our own “Game Store”</p>
+					<p class="exp--content3">Learning to work with teams and understand different roles</p>
+					<p class="exp--content4">Providing the basic tools needed to learn and see similarities between software from assembly language, scripting in bash, and creating database.</p>
+					<p class="exp--content5">Teaching us how to learn and how same concept is used throughout all programming language</p>
+					<p class="exp--content6">Practiced front-end development skills and address problem solving using Agile & Spiral Models</p>
+				</div>
+			</section>
+			<section class="exp-projects">
+				<h3 class="exp--heading">
+					<span class="exp--name">South Seattle Community College</span>
+					<span class="exp--position">Associate Degree in Computer Science</span>
+					<span class="text-orange">|</span>
+					<span class="exp--date">2011 - 2013</span>
+				</h3>
+				<div class="exp--content">
+					<p class="exp--content1">First learned to program through a game. The objective was to move the character from one grid point to another, given functions that will transalate and rotate the character. This taught me to think logically and refactor my code to reach the minimum number of steps.</p>
+					<p class="exp--content2">Learned through another games i.e. Evil Hangman where the program will remove letters suggested by user and end up with a word unthinkable by the player.</p>
+					<p class="exp--content3">The programming courses required team effort and discussion with classmates to expand our ideas</p>
+				</div>
+			</section>			
+		</section>
+	</main>	
 	</body>
 	<!-- Lastly the footer, links about your other projects -->
 	<footer>
 	</footer>
-	<script src="" async defer></script>
+	<script src="js/main.js" ></script>
 </html>
