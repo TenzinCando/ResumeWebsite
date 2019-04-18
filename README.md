@@ -9,7 +9,7 @@ HTML/CSS
 GoLang
 
 # Steps
-(DONE) 1. Migrate my word document into a html page
+1. (DONE) Migrate my word document into a html page
 2. Take pieces out of the html page into a js file
   2.1 Navgiation Bar
   2.2 Objective
