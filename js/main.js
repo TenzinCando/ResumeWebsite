@@ -11,13 +11,14 @@
 var nav = new Vue({
     el: '#nav',
     data: {
-      title: 'Tenzin <span class="text-orange text-shadow">Khando</span>',
+      title: {
+          text: 'Tenzin <span class="text-orange text-shadow">Khando</span>',
+          style: 'title--heading'
+      },
       contacts: [
-          { id: 0,  
-            text: 'tkhando1@hotmail.com', 
+          { text: 'tkhando1@hotmail.com', 
             link: 'mailto:tkhando1@hotmail.com', 
             style: 'contact-info__email', 
-            icon: 'far fa-envelope icon'
             icon: 'far fa-envelope icon',
             divider: true
         },
