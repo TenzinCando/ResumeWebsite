@@ -18,20 +18,15 @@ var nav = new Vue({
             link: 'mailto:tkhando1@hotmail.com', 
             style: 'contact-info__email', 
             icon: 'far fa-envelope icon'
+            icon: 'far fa-envelope icon',
+            divider: true
         },
-          { id: 1,  
-            text: '206-302-9558', 
+          { text: '206-302-9558', 
             link: 'tel:206-302-558', 
             style: 'contact-info__phone', 
-            icon: 'fas fa-mobile-alt icon'
+            icon: 'fas fa-mobile-alt icon',
+            divider: false
         }
       ]
-    },
-    methods: {
-        /* Useful in adding something in the middle, Example: '1 | 2 | 3' */
-        addDivider: function (arrSize, id) {
-          //console.log('Size:' + arrSize + ' | id: ' + id);
-          return (arrSize > 1 && (id < arrSize - 1));
-        }
     }
 });

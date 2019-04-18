@@ -34,14 +34,14 @@
 	<!-- The title of the page -->
 	<header id="nav" class="title nav">
 		<div class="nav-bar">
-			<h1 class="title--heading" v-html="title"></h1>
+			<h1 v-bind:class="title.style" v-html="title.text"></h1>
 			<div class="contact-info" >
 				<span v-bind:class="contact.style" v-for="contact in contacts">
 					<a v-bind:href="contact.link" v-bind:title="contact.text">
 						<i v-bind:class="contact.icon"></i>
 						<span class="contact-info__text">{{contact.text}}</span>
 					</a>
-					<span v-if="addDivider(contacts.length, contact.id)" class="text-orange">|</span>
+					<span v-if="contact.divider" class="text-orange">|</span>
 				</span>
 			</div>
 		</div>
@@ -162,5 +162,5 @@
 	<!-- Lastly the footer, links about your other projects -->
 	<footer>
 	</footer>
-	<script src="js/main.js" ></script>
+	<script src="js/main.js"></script>
 </html>
