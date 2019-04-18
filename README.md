@@ -9,13 +9,13 @@ HTML/CSS
 GoLang
 
 # Steps
-1. (DONE) Migrate my word document into a html page
-2. Take pieces out of the html page into a js file
-  2.1 Navgiation Bar
-  2.2 Objective
-  2.3 Technology List
-  2.4 Experience/Work History
-  2.5 Schools/Education
-3. Create a DB/File to store pull data from
-4. Create a server with Golang to serve the HTML file
-5. Make it accessible from the internet
+- [x] Migrate my word document into a html page
+- [ ] Take pieces out of the html page into a js file
+  - [ ] Navgiation Bar
+  - [ ] Objective
+  - [ ] Technology List
+  - [ ] Experience/Work History
+  - [ ] Schools/Education
+- [ ] Create a DB/File to store pull data from
+- [ ] Create a server with Golang to serve the HTML file
+- [ ] Make it accessible from the internet
