@@ -48,32 +48,21 @@
 	</header>
 
 	<!-- The objective or content of your page. -->
-	<main class="resume-main">
+	<main id="resumeMain">
 		<section class="objective">
-			<h2 class="heading-title"><span class="underline">Objective</span></h2>
-			<p class="objective--content">Great work ethic and always striving to meet or exceed the expectation for all projects. Adaptable to any challenge I face by asking questions to better understand and tackle the problem. Reliable and willing to help others to the best of my knowledge. Due to this, I can efficiently contribute my skills to the growth of an organization and build my professional career.</p>
+			<h2 class="heading-title"><span class="underline">{{objective.title}}</span></h2>
+			<p class="objective--content">{{objective.content}}</p>
 		</section>
-
-		<!-- The objective or content of your page. -->
+		
+		<!-- List of exposed technologies -->
 		<section class="technologies">
-			<h2 class="heading-title"><span class="underline">Technology Summary</span></h2>
+			<h2 class="heading-title"><span class="underline">{{technologies.title}}</span></h2>
 			<ul class="technologies--list">
-				<li>AWS EC2, AWS CDN, AWS RDS</li>
-				<li>Azure Webapp</li>
-				<li>Java</li>
-				<li>PHP</li>
-				<li>Bash script</li>
-				<li>AngularJS</li>
-				<li>HTML/CSS/JS</li>
-				<li>C++</li>
-				<li>Sourcetree, Github</li>
-				<li>MySQL, SQL Server, SQLite</li>
-				<li>Eclipse, Netbean, Visual Studio, Visual Studio Code</li>
-				<li>MS Word, Excel, Powerpoint, Outlook</li>
-				<li>Linux Ubuntu 14.0, Windows 7/10</li>
-				<li>Google Drive</li>
-				<li>Draw.io</li>
-				<li>Postman</li>
+				<list-items
+				v-for="item in technologies.list"
+				v-bind:item="item"
+				v-bind:key="item.id"
+				></list-items>
 			</ul>
 		</section>
 
