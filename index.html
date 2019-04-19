@@ -50,13 +50,14 @@
 	<!-- The objective or content of your page. -->
 	<main id="resumeMain">
 		<section class="objective">
+			<heading2 title="objective.title"></heading2>
 			<h2 class="heading-title"><span class="underline">{{objective.title}}</span></h2>
 			<p class="objective--content">{{objective.content}}</p>
 		</section>
 		
 		<!-- List of exposed technologies -->
 		<section class="technologies">
-			<h2 class="heading-title"><span class="underline">{{technologies.title}}</span></h2>
+			<heading2 title="technologies.title"></heading2>
 			<ul class="technologies--list">
 				<list-items
 				v-for="item in technologies.list"

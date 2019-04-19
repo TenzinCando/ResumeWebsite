@@ -38,6 +38,12 @@ Vue.component('list-items', {
   template: '<li>{{ item.text }}</li>'
 });
 
+/* Template for H2 tag */
+Vue.component('heading2', {
+  props: ['title'],
+  template: '<h2 class="heading-title"><span class="underline">{{title}}</span></h2>'
+});
+
 /* Resume */
 var resumeMain = new Vue({
   el: '#resumeMain',
