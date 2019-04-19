@@ -59,38 +59,36 @@
 			<heading2 v-bind:title="technologies.title"></heading2>
 			<ul class="technologies--list">
 				<list-items
-				v-for="item in technologies.list"
-				v-bind:item="item"
-				v-bind:key="item.id"
+					v-for="item in technologies.list"
+					v-bind:item="item"
+					v-bind:key="item.id"
 				></list-items>
 			</ul>
 		</section>
 
 		<!-- All my work experience -->
 		<section class="exp">
-			<h2 class="heading-title"><span class="underline">Work Experiences</span></h2>
-			<section class="exp-projects">
-				<h3 class="exp--heading">
-					<span class="exp--name">American Retail Supply</span> 
-					<span class="exp--position">Full Stack Developer</span> 
-					<span class="text-orange">|</span>
-					<span class="exp--date">Jan. 2015 - Present</span></h3>
-				<div class="exp--content">
-					<p class="exp--content1">Built custom features, fixed bugs, and created reports for customers to reduce frustration and increase functionality for the Point-of-Sale(POS) application. The application was built using Maven based Java Application, Spring Framework for the frontend, Jasper Report (jrxml), and MySQL for the database.</p>
-					<ul class="exp--content1-1">
-						<li>Spoke to customers in documenting the process of their problem, discussed best possible solution and pair program with Senior Software Engineer.</li>
-						<li>Example: Adding products on the fly, integrating gateway processors, retire products, and more… to make our POS System more robust.</li>
-					</ul>				
-					<p class="exp--content2">Helped design and implement a Hybrid Azure WebApp to collect in-stores reviews. The app is built utilizing AngularJS, MySQL, and PHP.</p>
-					<p class="exp--content3">Built custom features, fixed bugs, maintained, and migrated to a new ecommerce platform, Magneto 2.0. This saved the company from outsourcing the work, quicker feature building, and better control of their website.</p>
-					<ul class="exp--content3-1">
-						<li>Wrote automation scripts in PHP and bash to reduce steps in switching between testing environments by 30%, backing up db/logs, and sending emails summary from db queries.</li>
-						<li>Incorporated AWS CDN to the website which redirected 30% of request away from the server.</li>
-						<li>Re-engineered 3rd party extensions to do what the business needed.</li>
-						<li>Delegated tasks and taught HTML/CSS to new non-technical employees to pay forward the skills and knowledge I had gained.</li>
-					</ul>
+			<heading2 v-bind:title="experiences.title"></heading2>
+			<section class="exp-companies">
+				<div class="exp-company" v-for="company in experiences.companies">
+					<heading3 
+						v-bind:place="company.place"	
+						v-bind:title="company.title"
+						v-bind:date="company.date">
+					</heading3>
+					<div class="exp--projects">
+						<div class="exp--project" v-for="project in company.projects">
+							<p>{{project.text}}</p>
+							<ul v-if="project.hasSubText">
+								<list-items
+									v-for="item in project.subText"
+									v-bind:item="item"
+								></list-items>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</section>	
+			</section>
 		</section>
 
 		<!-- All my Interships -->

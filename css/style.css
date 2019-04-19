@@ -57,7 +57,7 @@ main {
 }
 
 .objective--content,
-.exp--content,
+.exp--projects,
 .technologies--list {
     font-size: calc(var(--font-size) * .80);
 }
@@ -74,7 +74,7 @@ main {
 
 /* Spacing at edge of screen */
 .objective--content,
-.exp--content,
+.exp--projects,
 .technologies--list,
 .exp--heading {
     margin-left: 8px;

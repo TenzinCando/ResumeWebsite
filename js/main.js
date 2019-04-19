@@ -41,7 +41,22 @@ Vue.component('list-items', {
 /* Template for H2 tag */
 Vue.component('heading2', {
   props: ['title'],
-  template: '<h2 class="heading-title"><span class="underline">{{title}}</span></h2>'
+  template: `
+    <h2 class="heading-title">
+      <span class="underline">{{title}}</span>
+    </h2>`
+});
+
+/* Template for H3 tag */
+Vue.component('heading3', {
+  props: ['place', 'title', 'date'],
+  template: `
+    <h3 class="exp--heading">
+      <span class="exp--name">{{place}}</span>
+      <span class="exp--position">{{title}}</span>
+      <span class="text-orange"> | </span>
+      <span class="exp--date">{{date}}</span>
+    </h3>`
 });
 
 /* Resume */
@@ -71,6 +86,37 @@ var resumeMain = new Vue({
         { id: 13, text: 'Google Drive'},
         { id: 14, text: 'Draw.io'},
         { id: 15, text: 'Postman'}
+      ]
+    },
+    experiences: {
+      title: 'Work Experiences',
+      companies: [
+        { id: 0, 
+          place: 'American Retail Supply',
+          title: 'Full Stack Developer',
+          date: 'Jan. 2015 - Present',
+          projects: [
+            { text: 'Built custom features, fixed bugs, and created reports for customers to reduce frustration and increase functionality for the Point-of-Sale(POS) application. The application was built using Maven based Java Application, Spring Framework for the frontend, Jasper Report (jrxml), and MySQL for the database.',
+              hasSubText: true,
+              subText: [
+                { id: 0, text: 'Spoke to customers in documenting the process of their problem, discussed best possible solution and pair program with Senior Software Engineer.'},
+                { id: 1, text: 'Example: Adding products on the fly, integrating gateway processors, retire products, and more… to make our POS System more robust.'}
+              ]
+            },
+            { text: 'Helped design and implement a Hybrid Azure WebApp to collect in-stores reviews. The app is built utilizing AngularJS, MySQL, and PHP.',
+              hasSubText: false
+            },
+            { text: 'Built custom features, fixed bugs, maintained, and migrated to a new ecommerce platform, Magneto 2.0. This saved the company from outsourcing the work, quicker feature building, and better control of their website.',
+              hasSubText: true,
+              subText: [
+                { id: 0, text: 'Wrote automation scripts in PHP and bash to reduce steps in switching between testing environments by 30%, backing up db/logs, and sending emails summary from db queries.'},
+                { id: 1, text: 'Incorporated AWS CDN to the website which redirected 30% of request away from the server.'},
+                { id: 2, text: 'Re-engineered 3rd party extensions to do what the business needed.'},
+                { id: 3, text: 'Delegated tasks and taught HTML/CSS to new non-technical employees to pay forward the skills and knowledge I had gained.'},
+              ]
+            }
+          ]
+        }
       ]
     }
   }
