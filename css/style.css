@@ -88,6 +88,7 @@ main {
     left: 0;
     width: 100%;
     background-color: var(--primary-color);
+    transition: top 0.45s;
 }
 
 .nav-bar {
