@@ -1,7 +1,7 @@
 # ResumeWebsite
 
 # Goal
-Converting my resume into a website while learning new languages like Vue and GoLang
+Converting my resume into a PWA while learning new languages like Vue and GoLang
 
 # Stack
 Vue.js
