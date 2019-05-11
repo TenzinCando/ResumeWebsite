@@ -3,13 +3,15 @@ var debug = false;
 
 // 2019-04-25 TK: Update cache names any time any of the cached files change.
 // Update the name if any changes are made
-var CACHE_NAME = 'resume-site-cache-v1';
+var CACHE_NAME = 'resume-site-cache-v4';
 // TODO: Test a static index.html VS using vue-js to populate index.html
 const FILES_TO_CACHE = [
-    'index.html',
-    'js/main.js',
-    'js/util.js',
-    'js/effects.js'
+    'public/index.html',
+    'public/js/main.js',
+    'public/js/util.js',
+    'public/js/effects.js',
+    'public/js/vue-dev.js',
+    'public/manifest.json'
 ];
 
 // STATE: ONLINE
@@ -50,17 +52,29 @@ self.addEventListener('activate', function(evt) {
 self.addEventListener('fetch', function(evt) {
     if (debug) console.log('[ServiceWorker] Fetch');
     
-    // 2019-04-26 TK: Add fetch event handler here.
-    if (evt.request.mode !== 'navigate') return;
+    if (debug) {
+        console.log('[ServiceWorker] Fetching: ');
+        console.log(evt.request);
+        console.log("/public" + evt.request.url.split("public")[1]);
+    }
 
-    if (debug) console.log('[ServiceWorker] Fetching: ' + evt.request);
+    // 2019-04-26 TK: Not a page navigation, bail.
+    //if (evt.request.mode !== 'navigate') return;
 
     evt.respondWith(
         fetch(evt.request)
             .catch(() => {
+            if (debug) {
+                console.log('caches:');
+                console.log(caches);
+            }
             // if it fails to find the requested page, send them back to the homepage
             return caches.open(CACHE_NAME)
                 .then((cache) => {
+                    if (debug) {
+                        console.log('cache:');
+                        console.log(cache);
+                    }
                     return cache.match(FILES_TO_CACHE[0]);
                 });
             })
