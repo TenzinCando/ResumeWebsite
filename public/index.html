@@ -21,18 +21,20 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="TKO Website">
 
-	<script src="js/util.js"></script>
+	<script src="js/util.js" defer></script>
 
-	<!-- Custom CSS-->
-	<link rel="stylesheet" href="css/style.css">
-
-	<!-- development version, includes helpful console warnings -->
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- Load css if javascript is disabled/not supported -->
+	<noscript>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	</noscript>
+	<!-- development version, includes helpful console warnings, https://cdn.jsdelivr.net/npm/vue/dist/vue.js
+	-->	
+	<script src="js/vue-dev.js" defer></script>
 
 	<!-- production version, optimized for size and speed -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<!-- TODO: Mobile-Friendly First -->
 	<!-- TODO: As someone scrolls, I want it to move between sections -->
 	<!-- TODO: When a section appears, I want things to slide from all directions... -->
@@ -93,10 +95,11 @@
 					<div class="exp--projects">
 						<div class="exp--project" v-for="project in company.projects">
 							<p>{{project.text}}</p>
-							<ul v-if="project.hasSubText">
+							<ul v-if="project.subText">
 								<list-items
 									v-for="item in project.subText"
 									v-bind:item="item"
+									v-bind:key="item.id"
 								></list-items>
 							</ul>
 						</div>
@@ -163,6 +166,6 @@
 	<!-- Lastly the footer, links about your other projects -->
 	<footer>
 	</footer>
-	<script src="js/main.js"></script>
-	<script src="js/effects.js"></script>
+	<script src="js/main.js" defer></script>
+	<script src="js/effects.js" defer></script>
 </html>
