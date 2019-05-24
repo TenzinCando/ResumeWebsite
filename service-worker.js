@@ -6,12 +6,12 @@ var debug = false;
 var CACHE_NAME = 'resume-site-cache-v4';
 // TODO: Test a static index.html VS using vue-js to populate index.html
 const FILES_TO_CACHE = [
-    'public/index.html',
+    'index.html',
     'public/js/main.js',
     'public/js/util.js',
     'public/js/effects.js',
     'public/js/vue-dev.js',
-    'public/manifest.json'
+    'manifest.json'
 ];
 
 // STATE: ONLINE
@@ -49,18 +49,18 @@ self.addEventListener('activate', function(evt) {
 
 // STATE: OFFLINE
 // 2019-04-26 TK: What to do when the user is offline and tries to visit other pages
-self.addEventListener('fetch', function(evt) {
-    if (debug) console.log('[ServiceWorker] Fetch');
-    
+self.addEventListener('fetch', function(evt) {  
     if (debug) {
+        console.log('[ServiceWorker] Fetch');
         console.log('[ServiceWorker] Fetching: ');
         console.log(evt.request);
         console.log("/public" + evt.request.url.split("public")[1]);
     }
 
     // 2019-04-26 TK: Not a page navigation, bail.
-    //if (evt.request.mode !== 'navigate') return;
+    // if (evt.request.mode !== 'navigate') return;
 
+    // each request in index.html is checked here. Need to parse the url to see if it is in cache storage
     evt.respondWith(
         fetch(evt.request)
             .catch(() => {
@@ -75,7 +75,10 @@ self.addEventListener('fetch', function(evt) {
                         console.log('cache:');
                         console.log(cache);
                     }
-                    return cache.match(FILES_TO_CACHE[0]);
+                    var urlIndex = FILES_TO_CACHE.findIndex((element) => {
+                        return element == ("/public" + evt.request.url.split("public")[1]);
+                    });
+                    return cache.match(FILES_TO_CACHE[urlIndex]);
                 });
             })
     );
